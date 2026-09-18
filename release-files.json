@@ -1,0 +1,15 @@
+[
+  "LICENSE",
+  "_locales/en/messages.json",
+  "_locales/ja/messages.json",
+  "background.js",
+  "dropbox-client.js",
+  "i18n.js",
+  "icons/mailstate.svg",
+  "manifest.json",
+  "options.css",
+  "options.html",
+  "options.js",
+  "privacy.html",
+  "settings.js"
+]

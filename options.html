@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="settingsTitle">MailState Sync settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+<main>
+    <h1 data-i18n="extensionName">MailState Sync</h1>
+    <p data-i18n="intro">Sync read/unread state and folder moves between existing copies of POP3 mail through your Dropbox account.</p>
+    <section class="card" aria-labelledby="privacyHeading">
+        <h2 id="privacyHeading" data-i18n="privacyHeading">1. Review data sharing</h2>
+        <p data-i18n="dataDisclosure"></p>
+        <p data-i18n="dataExclusions"></p>
+        <p><a href="privacy.html" target="_blank" rel="noopener" data-i18n="privacyLink">Privacy policy</a></p>
+        <label class="row"><input id="dataConsent" type="checkbox"><span data-i18n="consentLabel"></span></label>
+    </section>
+    <section class="card" aria-labelledby="accountsHeading">
+        <h2 id="accountsHeading" data-i18n="accountsHeading">2. Select POP3 accounts</h2>
+        <div id="accountList" class="accountList"></div>
+        <p class="note" data-i18n="accountsHelp"></p>
+        <label for="folderPrefixes" data-i18n="folderPrefixesLabel">Included folder paths (optional)</label>
+        <p id="prefixHelp" class="note" data-i18n="prefixHelp"></p>
+        <textarea id="folderPrefixes" rows="3" aria-describedby="prefixHelp" placeholder="/Inbox"></textarea>
+        <label class="row"><input id="enabled" type="checkbox"><span data-i18n="enabledLabel">Enable synchronization</span></label>
+        <label class="row"><input id="watchEnabled" type="checkbox"><span data-i18n="watchLabel">Apply Dropbox changes automatically</span></label>
+        <div class="row gap"><button id="save" class="primary" data-i18n="save">Save settings</button><button id="refresh" data-i18n="refresh">Reload settings</button></div>
+    </section>
+    <section class="card" aria-labelledby="dropboxHeading">
+        <h2 id="dropboxHeading" data-i18n="dropboxHeading">3. Connect your Dropbox app</h2>
+        <p data-i18n="dropboxHelp"></p>
+        <ol>
+            <li><a href="https://www.dropbox.com/developers/apps" target="_blank" rel="noopener noreferrer" data-i18n="dropboxConsole">Open the Dropbox App Console</a><span data-i18n="dropboxStep1"></span></li>
+            <li data-i18n="dropboxStep2"></li>
+            <li data-i18n="dropboxStep3"></li>
+        </ol>
+        <label for="dropboxAppKey" data-i18n="appKeyLabel">App key (not App secret)</label>
+        <input id="dropboxAppKey" type="text" autocomplete="off" spellcheck="false">
+        <button id="openAuthPage" data-i18n="openAuth">Save and open authorization</button>
+        <label for="dropboxAuthCode" data-i18n="authCodeLabel">Authorization code from Dropbox</label>
+        <input id="dropboxAuthCode" type="password" autocomplete="off" spellcheck="false">
+        <div class="row gap"><button id="exchangeCode" class="primary" data-i18n="connect">Connect</button><button id="checkAuth" data-i18n="checkAuth">Connection status</button><button id="disconnect" data-i18n="disconnect">Disconnect this device</button></div>
+        <p class="note" data-i18n="disconnectHelp"></p>
+        <p id="authStatus" role="status" aria-live="polite"></p>
+    </section>
+    <section class="card" aria-labelledby="optionalHeading">
+        <h2 id="optionalHeading" data-i18n="optionalHeading">Optional features</h2>
+        <label class="row"><input id="localMirrorEnabled" type="checkbox"><span data-i18n="mirrorLabel"></span></label>
+        <p class="note" data-i18n="mirrorHelp"></p>
+        <label for="localMirrorFilename" data-i18n="mirrorPathLabel">Path relative to Downloads</label>
+        <input id="localMirrorFilename" type="text" spellcheck="false">
+        <label class="row"><input id="cleanupEmptyFolders" type="checkbox"><span data-i18n="cleanupLabel"></span></label>
+        <p class="note" data-i18n="cleanupHelp"></p>
+    </section>
+    <section class="card" aria-labelledby="operationsHeading">
+        <h2 id="operationsHeading" data-i18n="operationsHeading">Sync operations</h2>
+        <p data-i18n="operationsHelp"></p>
+        <div class="row gap"><button id="pullApply" class="primary" data-i18n="pull">Fetch and apply Dropbox state</button><button id="uploadNow" data-i18n="upload">Upload now</button><button id="fullScanLocal" data-i18n="fullScan">Scan local mail and upload</button></div>
+        <pre id="status" class="pre" role="status" aria-live="polite"></pre>
+    </section>
+    <section class="card" aria-labelledby="removalHeading">
+        <h2 id="removalHeading" data-i18n="removalHeading">Remove saved data</h2>
+        <p data-i18n="removalHelp"></p>
+        <button id="clearLocalData" class="danger" data-i18n="clearLocal">Clear this add-on’s local data</button>
+    </section>
+</main>
+<script src="settings.js"></script>
+<script src="i18n.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

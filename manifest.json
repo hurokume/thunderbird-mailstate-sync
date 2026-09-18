@@ -1,0 +1,44 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_extensionName__",
+    "version": "0.9.0",
+    "description": "__MSG_extensionDescription__",
+    "default_locale": "en",
+    "icons": { "64": "icons/mailstate.svg", "128": "icons/mailstate.svg" },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "mailstate-sync@example.local",
+            "strict_min_version": "128.0"
+        }
+    },
+    "permissions": [
+        "accountsRead",
+        "accountsFolders",
+        "messagesMove",
+        "messagesRead",
+        "messagesUpdate",
+        "storage",
+        "sensitiveDataUpload",
+        "alarms"
+    ],
+    "optional_permissions": ["downloads", "messagesDelete"],
+    "host_permissions": [
+        "https://api.dropboxapi.com/*",
+        "https://content.dropboxapi.com/*",
+        "https://notify.dropboxapi.com/*"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'none'; connect-src https://api.dropboxapi.com https://content.dropboxapi.com https://notify.dropboxapi.com; style-src 'self'; img-src 'self' data:"
+    },
+    "background": {
+        "scripts": [
+            "settings.js",
+            "dropbox-client.js",
+            "background.js"
+        ]
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    }
+}

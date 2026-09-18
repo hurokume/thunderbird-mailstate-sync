@@ -1,0 +1,13 @@
+{
+  "name": "thunderbird-mailstate-sync",
+  "version": "0.9.0",
+  "private": true,
+  "description": "Publication and regression checks for MailState Sync",
+  "license": "MPL-2.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test background.test.js",
+    "check": "node scripts/check-release.js",
+    "build": "pwsh -NoProfile -File build-xpi.ps1"
+  }
+}

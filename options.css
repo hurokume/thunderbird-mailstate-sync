@@ -1,0 +1,135 @@
+:root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.65;
+    color-scheme: light dark;
+    color: CanvasText;
+    background: Canvas;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 16px;
+    max-width: 900px;
+}
+
+h1 {
+    margin: 0 0 12px;
+}
+
+h2 {
+    margin: 0 0 10px;
+}
+
+h3 {
+    margin: 12px 0 6px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 12px 0;
+    background: Canvas;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.gap {
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+label {
+    display: grid;
+    gap: 6px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: min(100%, 580px);
+    margin: 4px 0 12px;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+button {
+    padding: 8px 12px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    background: ButtonFace;
+    color: ButtonText;
+    cursor: pointer;
+}
+
+button.primary {
+    background: #1f6feb;
+    border-color: #1f6feb;
+    color: #fff;
+}
+
+button.danger {
+    background: #d73a49;
+    border-color: #d73a49;
+    color: #fff;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.accountList {
+    display: grid;
+    gap: 6px;
+    padding: 6px 0;
+}
+
+.acct {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.pre {
+    white-space: pre-wrap;
+    background: #0b1020;
+    color: #d5e7ff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 280px;
+    overflow: auto;
+}
+
+.note {
+    margin: 0 0 10px;
+    opacity: 0.85;
+}
+
+.row { margin: 12px 0; gap: 8px; }
+a { color: LinkText; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible { outline: 3px solid #1f6feb; outline-offset: 3px; }
+input[type="checkbox"] { flex-shrink: 0; }
+pre:empty { display: none; }
