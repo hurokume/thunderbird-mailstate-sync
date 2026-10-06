@@ -78,6 +78,10 @@ npm run build
 
 The build runs regression tests and release checks, creates an XPI and source ZIP in `dist/`, verifies the packaged files against the source, and writes SHA-256 sums. Archives are reproducible with the same sources and PowerShell/.NET runtime. The XPI contains unminified runtime source, with no third-party code or Experiment APIs.
 
+Every push to `main` runs the same build in GitHub Actions. Open the **Build XPI** run under **Actions** and download `mailstate-sync-<commit SHA>` from **Artifacts** to get the XPI, source ZIP, and SHA-256 sums. Artifacts are retained for 30 days.
+
+`main`へのpush時にもGitHub Actionsで同じビルドを実行します。**Actions**の**Build XPI**実行結果を開き、**Artifacts**の`mailstate-sync-<commit SHA>`からXPI・ソースZIP・SHA-256チェックサムをダウンロードできます。保存期間は30日です。
+
 - `settings.js`: defaults and account selection.
 - `dropbox-client.js`: Dropbox requests, PKCE authorization, and token renewal.
 - `background.js`: mail events, conflict resolution, scans, and sync alarms.
