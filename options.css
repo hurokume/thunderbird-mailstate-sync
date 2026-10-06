@@ -1,135 +1,113 @@
 :root {
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
     line-height: 1.65;
     color-scheme: light dark;
     color: CanvasText;
     background: Canvas;
+    --border: color-mix(in srgb, CanvasText 22%, Canvas);
+    --muted: color-mix(in srgb, CanvasText 72%, Canvas);
+    --accent: #235bb2;
+    --danger: #a42b30;
 }
 
 * { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 900px; margin: 0 auto; padding: 32px 28px 0; }
+h1 { margin: 0; font-size: 25px; font-weight: 600; line-height: 1.4; }
+h2 { margin: 0; font-size: 15px; font-weight: 600; }
+h3 { margin: 22px 0 8px; font-size: 14px; font-weight: 600; }
+p { margin: 0 0 12px; }
+a { color: LinkText; text-underline-offset: 3px; }
+.pageHeader { margin-bottom: 28px; }
+.pageHeader p { margin: 8px 0 0; color: var(--muted); }
 
-body {
-    margin: 16px;
-    max-width: 900px;
-}
-
-h1 {
-    margin: 0 0 12px;
-}
-
-h2 {
-    margin: 0 0 10px;
-}
-
-h3 {
-    margin: 12px 0 6px;
-}
-
-.card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin: 12px 0;
-    background: Canvas;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-}
-
-.gap {
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.grid {
+.settingsSection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 152px minmax(0, 1fr);
+    gap: 24px;
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+    scroll-margin-bottom: 130px;
 }
 
-label {
-    display: grid;
-    gap: 6px;
-}
+.sectionBody > :last-child, .detailsBody > :last-child { margin-bottom: 0; }
+.note { color: var(--muted); font-size: 13px; }
+.checkRow { display: flex; align-items: flex-start; gap: 9px; margin: 0 0 10px; }
+input[type="checkbox"] { flex-shrink: 0; margin: 5px 0 0; accent-color: var(--accent); }
+.accountList { margin: 0 0 10px; }
+.acct { display: flex; align-items: flex-start; gap: 9px; padding: 5px 0; }
+.accountName, .accountEmail { display: block; overflow-wrap: anywhere; }
+.accountEmail { color: var(--muted); font-size: 13px; }
 
-input[type="text"],
-input[type="password"] {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: min(100%, 580px);
-    margin: 4px 0 12px;
-}
-
-textarea {
+label { display: block; }
+input[type="text"], input[type="password"], textarea {
     width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    min-width: 0;
+    margin: 6px 0 12px;
+    padding: 7px 9px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font: inherit;
+    color: FieldText;
+    background: Field;
+    scroll-margin-bottom: 130px;
 }
-
+textarea { resize: vertical; font-family: ui-monospace, Consolas, monospace; }
+.inputAction { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0 14px; }
+.inputAction input { flex: 1; margin: 0; }
+.inputAction button { flex-shrink: 0; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
 button {
-    padding: 8px 12px;
-    border: 1px solid #bbb;
-    border-radius: 8px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
     background: ButtonFace;
     color: ButtonText;
+    font: inherit;
+    line-height: 1.65;
     cursor: pointer;
+    scroll-margin-bottom: 130px;
 }
+button:hover:not(:disabled) { background: color-mix(in srgb, CanvasText 8%, Canvas); }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary:hover:not(:disabled) { background: #174784; border-color: #174784; }
+button.danger { color: var(--danger); }
+button:disabled { opacity: 0.6; cursor: wait; }
+:is(button, input, textarea, a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-button.primary {
-    background: #1f6feb;
-    border-color: #1f6feb;
-    color: #fff;
+details { margin: 16px 0; }
+.sectionBody > details:first-child { margin-top: 0; }
+summary { cursor: pointer; width: fit-content; scroll-margin-bottom: 130px; }
+.detailsBody { margin-top: 12px; }
+.setupSteps { margin: 0 0 18px; padding-left: 24px; }
+.setupSteps li { margin-bottom: 8px; overflow-wrap: anywhere; }
+#authStatus { margin-bottom: 10px; }
+
+.saveBar {
+    position: sticky;
+    bottom: 0;
+    background: Canvas;
+    border-top: 1px solid var(--border);
+    padding: 14px 0;
 }
+.saveBar .actions { margin-bottom: 0; }
+#status { margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 7em; overflow: auto; }
+#status:empty { display: none; }
 
-button.danger {
-    background: #d73a49;
-    border-color: #d73a49;
-    color: #fff;
+.policy { max-width: 780px; padding-bottom: 32px; }
+.policy h1 { margin-bottom: 12px; }
+.policy h2 { margin: 28px 0 8px; }
+.policy p { white-space: pre-line; overflow-wrap: anywhere; }
+
+@media (prefers-color-scheme: dark) {
+    :root { --accent: #3878d4; --danger: #ff959b; }
 }
-
-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+@media (max-width: 640px) {
+    main { padding: 20px 16px 0; }
+    .settingsSection { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 20px 0; }
+    .inputAction { flex-direction: column; align-items: stretch; }
+    .inputAction input { flex: auto; }
+    .inputAction button { align-self: flex-start; }
+    .policy { padding-bottom: 24px; }
 }
-
-.accountList {
-    display: grid;
-    gap: 6px;
-    padding: 6px 0;
-}
-
-.acct {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-}
-
-.pre {
-    white-space: pre-wrap;
-    background: #0b1020;
-    color: #d5e7ff;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-    max-height: 280px;
-    overflow: auto;
-}
-
-.note {
-    margin: 0 0 10px;
-    opacity: 0.85;
-}
-
-.row { margin: 12px 0; gap: 8px; }
-a { color: LinkText; }
-button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible { outline: 3px solid #1f6feb; outline-offset: 3px; }
-input[type="checkbox"] { flex-shrink: 0; }
-pre:empty { display: none; }

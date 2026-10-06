@@ -409,6 +409,37 @@ test("creating a nested destination reuses its localized parent", async (t) => {
     assert.deepEqual(created, [{ parent: "inbox", name: "新しい案件" }]);
 });
 
+for (const baseline of ["legacy", "untracked"]) {
+    test(`a read event on a ${baseline} message cannot undo a cloud move`, async (t) => {
+        const { context, events, store, message, destination } = syncFixture(t);
+        if (baseline === "legacy") delete store.localState.messages.id.folderTs;
+        else delete store.localState.messages.id;
+        await events.updated.listener(structuredClone(message), { read: true });
+        // Merge and publish as the automatic flush does, then apply the move.
+        const uploads = [];
+        context.uploadDropboxState = async (_token, state) => {
+            uploads.push(structuredClone(state));
+            return { ok: true, rev: "uploaded" };
+        };
+        await run(context, "uploadNowWithConflictResolution()");
+        assert.equal(uploads[0].messages.id.folderPath, destination.path);
+        assert.equal(message.folder.id, destination.id);
+        assert.equal(store.localState.messages.id.folderTs, 200);
+        assert.equal(store.localState.messages.id.read, true);
+    });
+}
+
+test("a full scan preserves an unchanged startup location with a zero timestamp", async (t) => {
+    const { context, store, message, destination } = syncFixture(t);
+    delete store.localState.messages.id;
+    await run(context, "fullScanToLocalState({ startup: true })");
+    assert.equal(store.localState.messages.id.folderTs, 0);
+    await run(context, "fullScanToLocalState()");
+    assert.equal(store.localState.messages.id.folderTs, 0);
+    await run(context, "pullCloudStateAndApply()");
+    assert.equal(message.folder.id, destination.id);
+});
+
 test("overlapping read and move events preserve both independent changes", async (t) => {
     const { events, store, message, destination } = syncFixture(t);
     await Promise.all([

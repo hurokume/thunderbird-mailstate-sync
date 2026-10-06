@@ -25,6 +25,7 @@ function readOptions() {
 async function saveSettings() {
     const options = readOptions();
     await send("SAVE_SETTINGS", { options, appKey: element("dropboxAppKey").value.trim() });
+    element("enabled").checked = options.enabled;
     return options;
 }
 
@@ -42,7 +43,16 @@ async function renderAccounts(options) {
         checkbox.disabled = !email;
         checkbox.checked = !!email && options.selectedAccountEmails.includes(email);
         const text = document.createElement("span");
-        text.textContent = `${account.name || email} — ${email || translate("missingIdentity")}`;
+        const name = document.createElement("span");
+        name.className = "accountName";
+        name.textContent = account.name || email || translate("missingIdentity");
+        text.append(name);
+        if (account.name && account.name !== email) {
+            const address = document.createElement("span");
+            address.className = "accountEmail";
+            address.textContent = email || translate("missingIdentity");
+            text.append(address);
+        }
         label.append(checkbox, text);
         container.append(label);
     }
@@ -52,6 +62,7 @@ async function renderAccounts(options) {
 async function refreshAuthStatus() {
     const response = await send("DROPBOX_STATUS_REFRESH");
     element("authStatus").textContent = translate(response.connected ? "connectedStatus" : "disconnectedStatus");
+    element("connectionSettings").open = !response.connected;
 }
 
 async function load() {
@@ -60,6 +71,8 @@ async function load() {
     element("dataConsent").checked = options.dataConsentVersion === MailStateSettings.CONSENT_VERSION;
     for (const key of ["enabled", "watchEnabled", "localMirrorEnabled", "cleanupEmptyFolders"]) element(key).checked = options[key];
     element("folderPrefixes").value = options.includeFolderPrefixes.join("\n");
+    element("folderSettings").open = options.includeFolderPrefixes.length > 0;
+    element("optionalSettings").open = options.localMirrorEnabled || options.cleanupEmptyFolders;
     element("localMirrorFilename").value = options.localMirrorFilename;
     element("dropboxAppKey").value = stored.dropboxConfig?.appKey ?? "";
     element("dropboxAuthCode").value = "";

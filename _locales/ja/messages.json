@@ -3,40 +3,40 @@
     "message": "MailState Sync"
   },
   "extensionDescription": {
-    "message": "自身のDropboxを使ってPOP3メールの既読状態と移動先を同期します。利用者自身のDropbox App keyが必要です。"
+    "message": "POP3メールの既読・未読と移動先フォルダーをDropbox経由で同期します。Dropbox App keyが必要です。"
   },
   "settingsTitle": {
     "message": "MailState Sync 設定"
   },
   "intro": {
-    "message": "自身のDropboxを使い、各PCに既にあるPOP3メールの既読・未読状態と移動先フォルダーを同期します。メール本文はコピーしません。"
+    "message": "各PCにあるPOP3メールの既読・未読と移動先フォルダーを、Dropbox経由で同期します。"
   },
   "privacyHeading": {
-    "message": "1. データ送信の確認"
+    "message": "データの送信"
   },
   "dataDisclosure": {
-    "message": "MailState Syncは、選択したアカウントのメールアドレス、Message-ID、既読状態、フォルダーのパス・名前・メール件数、変更時刻、ランダムなクライアント識別子を、HTTPSで自身のDropboxへ保存します。識別子やフォルダー名に個人情報が含まれる場合があります。同期により、このPCの既読状態の変更・フォルダー作成・メール移動が行われます。"
+    "message": "選んだアカウントのメールアドレス、Message-ID、既読・未読、フォルダー名・パス・メール件数、変更時刻・履歴、端末ごとの識別子を、自分のDropboxにHTTPSで送信します。フォルダー名などに個人情報が含まれる場合があります。同期時には、このPCの既読・未読を変更し、メールを移動します。移動先のフォルダーがなければ作成します。"
   },
   "dataExclusions": {
-    "message": "メール本文・件名・添付ファイル・アドレス帳・メールパスワードは送信しません。開発者への利用状況送信もありません。有効化の前にプライバシーポリシーをご確認ください。"
+    "message": "本文・件名・添付ファイル・アドレス帳・メールパスワードは送信しません。開発者への利用状況の送信もありません。"
   },
   "privacyLink": {
-    "message": "プライバシーポリシーを読む"
+    "message": "プライバシーポリシー"
   },
   "consentLabel": {
-    "message": "MailState Syncが同期のために上記データを処理し、自身のDropboxへ送信することに同意します。"
+    "message": "上記のデータを同期に使い、自分のDropboxへ送信することに同意する"
   },
   "accountsHeading": {
-    "message": "2. POP3アカウントの選択"
+    "message": "同期"
   },
   "accountsHelp": {
-    "message": "チェックしたPOP3アカウントだけを同期します。未選択なら同期しません。各PCで同じメールアドレスを使用してください。別アカウントや「ローカルフォルダー」への移動は対象外です。"
+    "message": "同期するアカウントを選んでください。各PCで同じメールアドレスを使います。何も選ばなければ同期しません。"
   },
   "folderPrefixesLabel": {
-    "message": "対象フォルダーパス（任意）"
+    "message": "フォルダーパスの先頭部分"
   },
   "prefixHelp": {
-    "message": "APIのフォルダーパスを1行に1つ指定します（例：/Inbox）。空欄なら選択アカウントの全フォルダーを対象にします。移動元と移動先の両方を含めてください。パスと表示名は異なる場合があります。"
+    "message": "空欄なら、選んだアカウントの全フォルダーが対象です。絞り込む場合は /Inbox などのパスを1行ずつ入力し、移動元と移動先の両方を含めてください。ThunderbirdのAPIが返すパスを使うため、画面上のフォルダー名と異なることがあります。"
   },
   "enabledLabel": {
     "message": "同期を有効にする"
@@ -51,91 +51,91 @@
     "message": "設定を再読み込み"
   },
   "dropboxHeading": {
-    "message": "3. 自身のDropboxアプリに接続"
+    "message": "Dropbox"
   },
   "dropboxHelp": {
-    "message": "Dropboxアカウントと、利用者自身で作成するDropbox APIアプリが必要です。すべてのPCで同じアプリとDropboxアカウントを使用してください。App secretは不要です。"
+    "message": "DropboxアカウントとAPIアプリを用意します。各PCで同じものを使ってください。"
   },
   "dropboxConsole": {
-    "message": "Dropbox App Consoleを開く"
+    "message": "Dropbox App Console"
   },
   "dropboxStep1": {
-    "message": "で、Scoped access → App folderを選び、任意の名前でアプリを作成します。"
+    "message": "で、Scoped access、App folderを選んでアプリを作成します。"
   },
   "dropboxStep2": {
-    "message": "Permissionsタブでfiles.metadata.read、files.content.read、files.content.writeを有効にして保存します。"
+    "message": "Permissionsで files.metadata.read、files.content.read、files.content.write を有効にし、Submitで保存します。"
   },
   "dropboxStep3": {
-    "message": "SettingsのApp keyを下欄へコピーします。認証ページで許可し、表示された認証コードを貼り付けてください。このコード貼り付け方式ではRedirect URIsの設定は不要です。"
+    "message": "SettingsにあるApp keyを下に貼り付けます。App secretとRedirect URIsの設定は不要です。"
   },
   "appKeyLabel": {
-    "message": "App key（App secretではありません）"
+    "message": "App key"
   },
   "openAuth": {
-    "message": "保存して認証ページを開く"
+    "message": "保存してDropboxで認証"
   },
   "authCodeLabel": {
-    "message": "Dropboxの認証コード"
+    "message": "認証コード"
   },
   "connect": {
     "message": "接続"
   },
   "checkAuth": {
-    "message": "接続状態"
+    "message": "状態を更新"
   },
   "disconnect": {
     "message": "このPCを切断"
   },
   "disconnectHelp": {
-    "message": "切断するとこのPCに保存したトークンを削除します。Dropbox側の認証も取り消す場合は、Dropboxの設定 → 接続済みアプリから解除してください。他PCの接続にも影響する場合があります。既存のDropboxファイルは残ります。"
+    "message": "切断すると、このPCの認証情報を削除します。Dropboxのファイルは残ります。Dropbox側のアクセス許可も取り消すには、Dropboxの「接続済みアプリ」から解除してください。同じアプリを使う他のPCにも影響する場合があります。"
   },
   "optionalHeading": {
-    "message": "任意の機能"
+    "message": "詳細設定"
   },
   "mirrorLabel": {
-    "message": "DownloadsへJSONミラーを保存する（ダウンロード権限が必要）"
+    "message": "同期データをJSONファイルにも保存する"
   },
   "mirrorHelp": {
-    "message": "初期状態では無効です。同期データを読み取り可能なJSONで指定ファイルに上書き保存します。トークンは含みません。Downloadsへアクセスできる他の利用者やバックアップソフトからも読み取れる場合があります。"
+    "message": "ダウンロードフォルダー内の指定ファイルへ上書き保存します。認証情報は含みませんが、このファイルを開ける人やソフトは同期データを読めます。有効にするとダウンロード権限を求めます。"
   },
   "mirrorPathLabel": {
-    "message": "Downloadsからの相対パス"
+    "message": "保存先（ダウンロードフォルダー内）"
   },
   "cleanupLabel": {
-    "message": "両PCで空と確認したカスタムフォルダーを削除する（削除権限が必要）"
+    "message": "同期元・同期先の両方で空のフォルダーを削除する"
   },
   "cleanupHelp": {
-    "message": "初期状態では無効です。同期元のスキャンで空と記録され、同期先も空で子フォルダーがない場合だけ削除します。標準メールフォルダーは保護します。任意機能を変更した後は設定を保存してください。"
+    "message": "同期元のスキャンで空と記録され、同期先にもメールや子フォルダーがない場合に削除します。受信トレイなどの標準フォルダーは削除しません。有効にすると削除権限を求めます。"
   },
   "operationsHeading": {
-    "message": "同期操作"
+    "message": "手動で同期"
   },
   "operationsHelp": {
-    "message": "初回は正しいメール配置のPCで総スキャンしてアップロードし、もう一方で取得・反映してください。既読・未読の同時変更は既読を優先し、移動先は変更履歴、次に時刻で決めます。PCの時計を正確にしてください。同期有効中はアップロード失敗を5分おきに再試行します。"
+    "message": "現在の設定を保存して実行します。通常はメールの操作に合わせて変更を送信し、自動反映が有効ならDropboxの変更も取り込みます。"
   },
   "pull": {
-    "message": "クラウド取得→反映"
+    "message": "Dropboxの変更を反映"
   },
   "upload": {
-    "message": "今すぐアップロード"
+    "message": "記録済みの変更を送信"
   },
   "fullScan": {
-    "message": "ローカル総スキャン→アップロード"
+    "message": "このPCのメールを確認して送信"
   },
   "removalHeading": {
-    "message": "保存データの削除"
+    "message": "設定と同期データを削除"
   },
   "removalHelp": {
-    "message": "ローカルデータを削除すると同期を停止し、設定・トークン・同期データのキャッシュを削除します。メール、Dropboxのstate.json、出力済みJSONは削除しません。不要なファイルは、全PCで同期を停止してから手動で削除してください。"
+    "message": "同期を停止し、このアドオンの設定・認証情報・同期データをこのPCから削除します。メールは残ります。Dropboxのファイルや出力済みのJSONも削除する場合は、全PCで同期を止めてから手動で削除してください。"
   },
   "clearLocal": {
-    "message": "このアドオンのローカル保存データを削除"
+    "message": "このPCの設定と同期データを削除"
   },
   "clearConfirm": {
-    "message": "同期を停止し、設定・トークン・同期データのキャッシュを削除しますか？メールとDropboxのファイルは残ります。"
+    "message": "このPCの設定・認証情報・同期データを削除して、同期を停止しますか？メール、Dropboxのファイル、出力済みのJSONは残ります。"
   },
   "cleared": {
-    "message": "ローカルデータを削除しました。同期は無効です。"
+    "message": "このPCの設定と同期データを削除しました。同期は停止しています。"
   },
   "missingIdentity": {
     "message": "アカウントのメールアドレスがありません"
@@ -144,19 +144,19 @@
     "message": "POP3アカウントが見つかりません。"
   },
   "connectedStatus": {
-    "message": "Dropbox：保存された認証情報があります。実際の接続は同期時に確認します。"
+    "message": "認証情報は保存済みです。Dropboxへの接続は同期時に確認します。"
   },
   "disconnectedStatus": {
-    "message": "Dropbox：このPCは未接続です。"
+    "message": "このPCはDropboxに接続していません。"
   },
   "permissionDenied": {
-    "message": "権限が許可されなかったため、この機能は利用できません。"
+    "message": "権限が許可されなかったため、設定を有効にできませんでした。"
   },
   "unknownError": {
     "message": "バックグラウンド処理から応答がありません。"
   },
   "failed": {
-    "message": "失敗：$1"
+    "message": "操作を完了できませんでした。$1"
   },
   "saved": {
     "message": "設定を保存しました。"
@@ -165,10 +165,10 @@
     "message": "設定を再読み込みしました。"
   },
   "consentRequired": {
-    "message": "先にデータ送信の説明を確認して同意してください。"
+    "message": "「データの送信」を確認し、同意にチェックを入れてください。"
   },
   "authOpened": {
-    "message": "Dropboxで許可した後、表示される認証コードを下欄に貼り付けて「接続」を押してください。"
+    "message": "Dropboxの認証ページを開きました。表示されたコードを「認証コード」欄に貼り付けて接続してください。"
   },
   "working": {
     "message": "処理中…"
@@ -177,13 +177,13 @@
     "message": "Dropboxへアップロードしました。"
   },
   "applyResult": {
-    "message": "完了。既読変更：$1、メール移動：$2、空フォルダー削除：$3、未発見：$4。"
+    "message": "反映しました。既読・未読の変更 $1件、メールの移動 $2件、空フォルダーの削除 $3件。このPCに見つからなかったメール $4件。"
   },
   "scanResult": {
-    "message": "$1件をスキャンしました。$2"
+    "message": "$1件のメールを確認しました。$2"
   },
   "progress": {
-    "message": "クラウド状態を反映中：$1 / $2"
+    "message": "Dropboxの変更を反映しています：$1 / $2件"
   },
   "privacyTitle": {
     "message": "MailState Sync プライバシーポリシー"
@@ -195,36 +195,57 @@
     "message": "目的と同意"
   },
   "privacyPurposeText": {
-    "message": "MailState Syncは、自身のPC間で既存のPOP3メールを同期するために使用します。データ送信に同意し、アカウントを選択して同期を有効にするまで、データ収集と同期は行いません。既存の利用者も0.9.0への更新後に同意が必要です。"
+    "message": "MailState Syncは、複数のPCにあるPOP3メールの既読・未読と移動先フォルダーを同期します。データの送信に同意し、アカウントを選んで同期を有効にするまで、同期用データの収集・送信は始まりません。0.9.0への更新時にも同意が必要です。"
   },
   "privacyData": {
     "message": "利用するデータ"
   },
   "privacyDataText": {
-    "message": "アカウント選択欄の表示のため、アカウントのID情報とフォルダー一覧を読み取ります。選択したPOP3アカウントでは、メールアドレス、Message-ID、既読・未読、フォルダーパスと表示名の階層、メール件数と空状態、変更時刻と変更履歴、インストールごとのランダムな識別子を処理します。Thunderbirdのメール一覧APIはヘッダー情報もメモリー上に返しますが、永続保存・送信するのは上記の同期項目だけです。本文・件名・差出人や宛先の一覧・添付ファイル・アドレス帳・メールパスワードは同期ファイルへ保存・送信しません。"
+    "message": "アカウント選択欄の表示のため、アカウントのID情報とフォルダー一覧を読み取ります。選択したPOP3アカウントでは、メールアドレス、Message-ID、既読・未読、フォルダーパスと表示名の階層、メール件数と空状態、変更時刻と変更履歴、インストールごとのランダムな識別子を処理します。\n\nThunderbirdのメール一覧APIはヘッダー情報もメモリー上に返しますが、永続保存・送信するのは上記の同期項目だけです。本文・件名・差出人や宛先の一覧・添付ファイル・アドレス帳・メールパスワードは同期ファイルへ保存・送信しません。"
   },
   "privacyRecipients": {
     "message": "送信先と通信"
   },
   "privacyRecipientsText": {
-    "message": "同期データはHTTPSでThunderbirdから自身のDropboxへ直接送信されます。送信先はapi.dropboxapi.comとcontent.dropboxapi.comです。notify.dropboxapi.comへ変更確認用カーソルを送信します。DropboxはIPアドレスや要求時刻などの通常の接続情報も受け取ります。認証ではシステムのブラウザーでwww.dropbox.comを開き、そのログイン画面とCookieはDropboxが管理します。アドオンはCookieの設定、解析、広告、開発者へのデータ送信を行いません。開発者は同期サーバーを運営しません。Dropboxが受信したデータはDropbox自身のポリシーに従って扱われます。アドオン独自のエンドツーエンド暗号化は行いません。"
+    "message": "同期データはHTTPSでThunderbirdから自分のDropboxへ直接送信されます。送信先はapi.dropboxapi.comとcontent.dropboxapi.comです。notify.dropboxapi.comへ変更確認用カーソルを送信します。DropboxはIPアドレスや要求時刻などの通常の接続情報も受け取ります。\n\n認証ではシステムのブラウザーでwww.dropbox.comを開き、そのログイン画面とCookieはDropboxが管理します。アドオンはCookieの設定、解析、広告、開発者へのデータ送信を行いません。開発者は同期サーバーを運営しません。\n\nDropboxが受信したデータはDropbox自分のポリシーに従って扱われます。アドオン独自のエンドツーエンド暗号化は行いません。"
   },
   "privacyStorage": {
     "message": "保存と保持期間"
   },
   "privacyStorageText": {
-    "message": "設定、同意状態、同期データ、カーソル、App key、アクセストークン・更新トークンを、削除またはアドオンのアンインストールまでThunderbirdプロファイルのstorage.localへ保存します。暗号化された認証情報保管庫ではないため、プロファイルのバックアップも機密情報として扱ってください。一時的なPKCE検証値は接続・切断後に削除され、15分経過後は認証に使用できません。Dropboxでは、アプリがアクセスできる領域（App folder方式ではApps/自身のアプリ名）内のthunderbird_backup/state.jsonに保存します。Dropboxの保持・履歴設定が適用されます。任意で有効化した場合は、読み取り可能な同期データのミラーをDownloadsにも保存します。トークンはクラウド・ミラーのファイルに含めません。診断用コンソール出力は初期状態で無効です。"
+    "message": "設定、同意状態、同期データ、カーソル、App key、アクセストークン・更新トークンを、削除またはアドオンのアンインストールまでThunderbirdプロファイルのstorage.localへ保存します。暗号化された認証情報保管庫ではないため、プロファイルのバックアップも機密情報として扱ってください。\n\n一時的なPKCE検証値は接続・切断後に削除され、15分経過後は認証に使用できません。\n\nDropboxでは、アプリがアクセスできる領域（App folder方式ではApps/自分のアプリ名）内のthunderbird_backup/state.jsonに保存します。Dropboxの保持・履歴設定が適用されます。\n\n任意で有効化した場合は、読み取り可能な同期データのコピーをDownloadsにも保存します。トークンはクラウド・ミラーのファイルに含めません。診断用コンソール出力は初期状態で無効です。"
   },
   "privacyControl": {
-    "message": "利用者による制御"
+    "message": "同期の停止とデータの削除"
   },
   "privacyControlText": {
-    "message": "「同期を有効にする」を外して保存すると収集と同期を停止します。同意を外して保存すると、ローカルの認証情報も削除します。「切断」はローカルトークンを削除します。Dropbox側で無効化するには接続済みアプリから解除してください。「ローカル保存データを削除」は、メールを削除せずに設定・認証情報・キャッシュを削除します。アカウント選択を外すと新しい収集を停止しますが、保存済みクラウドデータは消去しません。他PCのデータを失わないよう、共有ファイル更新時も既存クラウドデータを保持する場合があります。すべてのコピーを消去する場合は、全PCで同期を停止し、各PCのローカルデータを消去し、Dropboxのファイルと利用可能な履歴、および出力ミラーとバックアップを削除してください。アドオンは外部ファイルを自動削除しません。"
+    "message": "「同期を有効にする」のチェックを外して保存すると、データの収集と同期が止まります。送信への同意も外して保存すると、このPCの認証情報を削除します。\n\n「このPCを切断」は、このPCの認証情報を削除します。Dropbox側のアクセス許可は、Dropboxの「接続済みアプリ」から取り消せます。「このPCの設定と同期データを削除」は、設定・認証情報・同期データを削除します。メールは削除しません。\n\nアカウントの選択を外すと、そのアカウントの新たなデータ収集が止まります。Dropboxに保存済みのデータは残り、他のPCで使えるよう、共有ファイルの更新後も保持される場合があります。\n\nすべての保存データを消すには、全PCで同期を止め、各PCの設定と同期データを削除してください。続いてDropboxのファイルと削除可能な履歴、出力済みのJSON、バックアップを手動で削除します。"
   },
   "privacyChanges": {
     "message": "変更と問い合わせ"
   },
   "privacyChangesText": {
     "message": "データの取り扱いに重要な変更がある場合は、アドオンと公開時の説明で通知し、必要に応じて再同意を求めます。問い合わせはaddons.thunderbird.netのMailState Sync公開ページに記載されたサポート先をご利用ください。公開レビューにメールの同期データ、トークン、認証コードを記載しないでください。"
+  },
+  "accountListHeading": {
+    "message": "対象のPOP3アカウント"
+  },
+  "folderSettingsHeading": {
+    "message": "対象フォルダーを絞る"
+  },
+  "connectionSettingsHeading": {
+    "message": "接続の設定"
+  },
+  "authCodeHelp": {
+    "message": "Dropboxでアクセスを許可すると表示されるコードを貼り付けて、「接続」を押してください。"
+  },
+  "optionalSettingsHeading": {
+    "message": "ファイル出力・空フォルダーの削除"
+  },
+  "fullScanHeading": {
+    "message": "初回の同期・メールの再確認"
+  },
+  "fullScanHelp": {
+    "message": "初回は、基準にしたい既読状態・フォルダー配置のPCで下のボタンを押してください。メールをすべて確認してDropboxに送信します。その後、他のPCで「Dropboxの変更を反映」を実行します。同期を止めている間に変更したメールを送信する場合も、この操作を使います。"
   }
 }

@@ -2,22 +2,52 @@
 
 ## Summary
 
-Sync POP3 read state and folder moves via your Dropbox account. Requires your own Dropbox App key.
+Sync POP3 read/unread state and folder moves through Dropbox. Requires a Dropbox App key.
 
 ## Description
 
-Keep existing copies of POP3 mail organized across your own computers. MailState Sync synchronizes read/unread state and moves within the same account through a JSON state file in your Dropbox account. It can create missing destination folders.
+Use MailState Sync when you receive the same POP3 mail on more than one PC. Read a message on one PC and it becomes read on the other. Move it to another folder in the same account and that move is synchronized too. Missing destination folders are created.
 
-Open MailState Sync settings in Thunderbird's Add-ons Manager. Review the privacy information, accept data sharing, select your POP3 accounts, and enable sync. Create a Dropbox API app with App folder access and the three permissions listed in settings, then connect using its App key and the authorization code from Dropbox. Use the same Dropbox app/account on every PC. Start with a local scan on the PC with the correct layout, then fetch and apply on the other PC. Full setup instructions are included in the settings page. A Dropbox account and a user-created Dropbox API app are required; no developer-issued access key or private membership is required.
+Each PC must already have a copy of the mail. The add-on does not copy message bodies or attachments, or sync deletions, tags, or stars. IMAP, moves between accounts, and Local Folders are not supported.
 
-The add-on sends selected account email addresses, Message-ID headers, read state, folder paths and names, folder message counts, change history, and a random client identifier to Dropbox over HTTPS. These values may contain personal information. Metadata and authorization tokens are stored in your Thunderbird profile. Message bodies, subjects, attachments, address books, and mail passwords are not uploaded. The developer receives no telemetry. See the full privacy policy on this listing and in settings.
+### Setup
 
-Read wins simultaneous read/unread conflicts; moves use change history and timestamps. Keep PC clocks accurate. Optional readable JSON exports in Downloads and deletion of empty custom folders are disabled by default and request additional permissions when enabled. Folder deletion requires both sides to report the folder empty; standard folders and folders with children are protected.
+Requires Thunderbird 128 or later and a Dropbox account.
 
-Supports Thunderbird 128+ and matching POP3 accounts with the same email identity. Does not copy mail between PCs, synchronize deletions/tags/stars, or handle IMAP, cross-account moves, or Local Folders. Messages need matching Message-ID headers. Thunderbird must be running for background synchronization. Dropbox storage is readable JSON without extra end-to-end encryption. This is not a mail backup.
+1. Create a Dropbox API app with Scoped access and App folder access. Under Permissions, enable files.metadata.read, files.content.read, and files.content.write, then select Submit.
+2. In the add-on settings, select your POP3 accounts and enable synchronization. Read Data sharing and check the consent box.
+3. Paste the App key, select Save and authorize, and connect using the code Dropbox provides.
+4. Use the same Dropbox app and Dropbox account on each PC. The POP3 accounts must also use the same email address.
+5. On the PC with the mail layout you want to use, select Scan this PC and upload. On the other PCs, select Apply Dropbox changes.
 
-Disable sync, revoke consent, disconnect, or clear local data in settings. Existing Dropbox files and exported mirrors remain until removed manually. Disconnecting locally does not revoke the grant on Dropbox; use Dropbox's Connected apps page to do that. Dropbox's own service terms and storage limits apply. The add-on itself has no payment, advertising, or affiliate features and is not affiliated with Dropbox or Thunderbird.
+No developer-issued key or membership is required.
 
-## Version 0.9.0 notes
+### Sync behavior
 
-Publication preparation: explicit opt-in, strict account selection, optional permissions, bilingual setup, privacy controls, renewable Dropbox authorization, and reproducible packaging. Existing installations must accept the disclosure again before synchronization resumes. The folder move fixes from 0.8.1 are retained.
+While Thunderbird is running, the add-on sends changes as you make them. With automatic application enabled, it checks Dropbox about once a minute. Messages are matched by Message-ID. Messages without one cannot sync; duplicate IDs can affect multiple copies.
+
+Read takes precedence when PCs change read/unread state concurrently. Folder conflicts use change history and timestamps, so keep PC clocks accurate.
+
+JSON export to Downloads and empty-folder deletion are available under Advanced. Both are off by default and request additional permissions when enabled. Folder deletion requires both source and destination to report the folder empty. Standard folders and folders with children are kept.
+
+### Stored data
+
+Dropbox receives selected account email addresses, Message-IDs, read/unread state, folder names, paths and message counts, change history, and a device identifier. Folder names and identifiers may contain personal information. Transfers use HTTPS. Sync data and credentials are also stored in the Thunderbird profile.
+
+Message bodies, subjects, attachments, address books, and mail passwords are not uploaded. No usage data is sent to the developer. The full privacy policy is available on this listing and in settings.
+
+The Dropbox sync file is readable JSON without additional end-to-end encryption. It cannot restore lost message bodies.
+
+### Stopping sync
+
+Uncheck Enable synchronization and save. Uncheck consent as well to delete this PC's credentials. Settings also provides controls to disconnect or delete settings and local sync data.
+
+Dropbox files and exported JSON remain. To remove them, stop sync on every PC and delete them manually. To revoke access at Dropbox, remove the app from Connected apps in Dropbox settings.
+
+Dropbox's service terms and storage limits apply. The add-on has no payment, advertising, or affiliate features and is not an official Dropbox or Thunderbird product.
+
+## Version 0.9.0
+
+Adds English and Japanese settings, data-sharing consent, account selection, and local data removal. Dropbox authorization renews automatically. JSON export and empty-folder deletion are now off by default. The mail-move fixes from 0.8.1 are included.
+
+After updating, accept data sharing and save settings to resume sync.

@@ -1444,9 +1444,14 @@ async function updateLocalFromMessage(message, override = {}) {
 
     if (!prev) {
         rec = makeRecord({ accountEmail: email, folderPath, read });
+        // Reading an untracked message only observes its current location.
+        // It must not compete with a move already recorded by another client.
+        if (!updateFolder) rec.folderTs = 0;
         recordChanged = true;
     } else {
-        rec = { ...prev, accountEmail: email };
+        // Legacy records use ts for both fields. Freeze the folder timestamp
+        // before changing read history so a read event cannot invent a move.
+        rec = { ...prev, accountEmail: email, folderTs: folderRecordTs(prev) };
 
         if (updateRead && !!prev.read !== read) {
             const baseTs = typeof prev.baseTs === "number"
@@ -1591,7 +1596,7 @@ async function fullScanToLocalState({ startup = false } = {}) {
                 const previousTs = typeof prevRec?.ts === "number" ? prevRec.ts : 0;
                 const previousFolderTs = folderRecordTs(prevRec);
                 const keepTs = readUnchanged && previousTs ? previousTs : Math.max(scanTimestamp, previousTs + 1);
-                const keepFolderTs = startup && !prevRec ? 0 : folderUnchanged && previousFolderTs
+                const keepFolderTs = startup && !prevRec ? 0 : folderUnchanged
                     ? previousFolderTs
                     : Math.max(scanTimestamp, previousFolderTs + 1);
                 const baseTs = readUnchanged && typeof prevRec?.baseTs === "number"

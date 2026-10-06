@@ -9,34 +9,34 @@
     "message": "MailState Sync settings"
   },
   "intro": {
-    "message": "Synchronize read/unread state and folder moves between existing copies of POP3 mail through your Dropbox account. Message bodies are not copied."
+    "message": "Sync read/unread state and folder moves between POP3 mail already on your PCs, using Dropbox."
   },
   "privacyHeading": {
-    "message": "1. Review data sharing"
+    "message": "Data sharing"
   },
   "dataDisclosure": {
-    "message": "MailState Sync saves the selected account email addresses, Message-ID headers, read state, folder paths and names, folder message counts, change times, and a random client identifier to your Dropbox account over HTTPS. These identifiers and names can contain personal information. Synchronization can mark messages read/unread, create folders, and move messages on this PC."
+    "message": "The add-on sends selected account email addresses, Message-ID headers, read/unread state, folder names, paths and message counts, change times and history, and a device identifier to your Dropbox over HTTPS. Folder names and identifiers may contain personal information. Sync changes read/unread state and moves mail on this PC, creating destination folders when needed."
   },
   "dataExclusions": {
-    "message": "Message bodies, subjects, attachments, address books, and mail passwords are not uploaded. The developer receives no telemetry. Read the privacy policy before enabling sync."
+    "message": "Message bodies, subjects, attachments, address books, and mail passwords are not uploaded. No usage data is sent to the developer."
   },
   "privacyLink": {
-    "message": "Read the privacy policy"
+    "message": "Privacy policy"
   },
   "consentLabel": {
-    "message": "I allow MailState Sync to process this metadata and send it to my Dropbox account for synchronization."
+    "message": "I agree to use this data for synchronization and send it to my Dropbox."
   },
   "accountsHeading": {
-    "message": "2. Select POP3 accounts"
+    "message": "Synchronization"
   },
   "accountsHelp": {
-    "message": "Only checked POP3 accounts are synchronized. No selection means no synchronization. Use the same email address on each PC. Moves between different accounts or Local Folders are not supported."
+    "message": "Select the accounts to sync. Use the same email address on each PC. If none are selected, nothing is synchronized."
   },
   "folderPrefixesLabel": {
-    "message": "Included folder paths (optional)"
+    "message": "Folder path prefixes"
   },
   "prefixHelp": {
-    "message": "One API path prefix per line, for example /Inbox. Leave empty for all folders in the selected accounts. Both source and destination must be included. Paths may differ from displayed folder names."
+    "message": "Leave blank to include all folders in the selected accounts. To limit them, enter one path prefix per line, such as /Inbox, and include both source and destination folders. Use Thunderbird API paths, which may differ from the names shown in Thunderbird."
   },
   "enabledLabel": {
     "message": "Enable synchronization"
@@ -51,91 +51,91 @@
     "message": "Reload settings"
   },
   "dropboxHeading": {
-    "message": "3. Connect your Dropbox app"
+    "message": "Dropbox"
   },
   "dropboxHelp": {
-    "message": "A Dropbox account and your own Dropbox API app are required. Use the same app and Dropbox account on every PC. No app secret is needed."
+    "message": "You need a Dropbox account and a Dropbox API app. Use the same ones on each PC."
   },
   "dropboxConsole": {
-    "message": "Open the Dropbox App Console"
+    "message": "Dropbox App Console"
   },
   "dropboxStep1": {
-    "message": " and create a Scoped access app with App folder access. Give it a name of your choice."
+    "message": " — create an app with Scoped access and App folder access."
   },
   "dropboxStep2": {
-    "message": "On its Permissions tab, enable files.metadata.read, files.content.read, and files.content.write, then submit the changes."
+    "message": "Under Permissions, enable files.metadata.read, files.content.read, and files.content.write, then select Submit."
   },
   "dropboxStep3": {
-    "message": "Copy the App key from Settings below. Open authorization, allow access, and paste the displayed authorization code. Leave Redirect URIs empty for this code-copy flow."
+    "message": "Paste the App key from Settings below. App secret and Redirect URIs are not needed."
   },
   "appKeyLabel": {
-    "message": "App key (not App secret)"
+    "message": "App key"
   },
   "openAuth": {
-    "message": "Save and open authorization"
+    "message": "Save and authorize"
   },
   "authCodeLabel": {
-    "message": "Authorization code from Dropbox"
+    "message": "Authorization code"
   },
   "connect": {
     "message": "Connect"
   },
   "checkAuth": {
-    "message": "Connection status"
+    "message": "Refresh status"
   },
   "disconnect": {
     "message": "Disconnect this device"
   },
   "disconnectHelp": {
-    "message": "Disconnect removes this device’s stored tokens. To revoke authorization at Dropbox too, remove the app in Dropbox → Settings → Connected apps. This may affect your other PCs. Existing Dropbox files remain."
+    "message": "Disconnecting deletes this PC’s saved credentials. Dropbox files remain. To revoke access at Dropbox as well, remove the app from Connected apps in Dropbox settings. This may also affect other PCs using the same app."
   },
   "optionalHeading": {
-    "message": "Optional features"
+    "message": "Advanced"
   },
   "mirrorLabel": {
-    "message": "Save a JSON metadata mirror in Downloads (requires download permission)"
+    "message": "Also save sync data as a JSON file"
   },
   "mirrorHelp": {
-    "message": "Off by default. Exports the synchronized metadata as readable JSON, overwriting the chosen filename. Tokens are excluded. Other users or backup software with access to Downloads may read this file."
+    "message": "Overwrites the chosen file in Downloads. Credentials are excluded, but anyone or any software with access to the file can read the sync data. Enabling this requests download permission."
   },
   "mirrorPathLabel": {
-    "message": "Path relative to Downloads"
+    "message": "File path within Downloads"
   },
   "cleanupLabel": {
-    "message": "Delete custom folders confirmed empty on both PCs (requires delete permission)"
+    "message": "Delete folders empty on both the source and destination"
   },
   "cleanupHelp": {
-    "message": "Off by default. A source scan must report the folder empty and the destination must also be empty with no child folders. Standard mail folders are protected. Save settings after changing optional features."
+    "message": "Deletes a folder only when the source scan reports it empty and the destination has no messages or child folders. Standard folders such as Inbox are kept. Enabling this requests delete permission."
   },
   "operationsHeading": {
-    "message": "Sync operations"
+    "message": "Manual sync"
   },
   "operationsHelp": {
-    "message": "For first use, scan and upload on the PC with the correct mail layout, then fetch and apply on the other PC. Read wins concurrent read/unread conflicts. Folder moves use causal history, then timestamps. Keep PC clocks accurate. Failed uploads retry every five minutes while sync is enabled."
+    "message": "These actions save your current settings first. Normally, mail changes are sent as you make them. Automatic application, when enabled, also brings in changes from Dropbox."
   },
   "pull": {
-    "message": "Fetch and apply Dropbox state"
+    "message": "Apply Dropbox changes"
   },
   "upload": {
-    "message": "Upload now"
+    "message": "Send saved changes"
   },
   "fullScan": {
-    "message": "Scan local mail and upload"
+    "message": "Scan this PC and upload"
   },
   "removalHeading": {
-    "message": "Remove saved data"
+    "message": "Reset this add-on"
   },
   "removalHelp": {
-    "message": "Clearing local data stops synchronization and removes settings, tokens, and the local metadata cache. It does not delete mail, Dropbox state.json, or exported JSON files. Delete those files yourself if no longer needed, after stopping sync on all PCs."
+    "message": "Stops sync and deletes this add-on’s settings, credentials, and cached sync data from this PC. Mail is kept. To also remove Dropbox files and exported JSON, stop sync on every PC and delete those files yourself."
   },
   "clearLocal": {
-    "message": "Clear this add-on’s local data"
+    "message": "Delete settings and local sync data"
   },
   "clearConfirm": {
-    "message": "Stop sync and delete this add-on’s settings, tokens, and metadata cache? Mail and Dropbox files will remain."
+    "message": "Stop sync and delete this PC’s add-on settings, credentials, and sync data? Mail, Dropbox files, and exported JSON will remain."
   },
   "cleared": {
-    "message": "Local data cleared. Sync is disabled."
+    "message": "Settings and local sync data deleted. Sync is off."
   },
   "missingIdentity": {
     "message": "No account email address"
@@ -144,19 +144,19 @@
     "message": "No POP3 accounts found."
   },
   "connectedStatus": {
-    "message": "Dropbox: saved authorization found. Sync operations will verify access."
+    "message": "Credentials saved. Dropbox access will be checked when you sync."
   },
   "disconnectedStatus": {
-    "message": "Dropbox: disconnected on this device."
+    "message": "This PC is not connected to Dropbox."
   },
   "permissionDenied": {
-    "message": "Permission was not granted. The feature remains unavailable."
+    "message": "Permission was not granted, so the setting could not be enabled."
   },
   "unknownError": {
     "message": "No response from the background process."
   },
   "failed": {
-    "message": "Failed: $1"
+    "message": "Could not complete the action. $1"
   },
   "saved": {
     "message": "Settings saved."
@@ -165,10 +165,10 @@
     "message": "Settings reloaded."
   },
   "consentRequired": {
-    "message": "Review and accept the data disclosure first."
+    "message": "Read Data sharing and check the consent box first."
   },
   "authOpened": {
-    "message": "After authorizing in Dropbox, copy its code into the field below and select Connect."
+    "message": "Dropbox authorization opened. Paste the code it provides into Authorization code, then select Connect."
   },
   "working": {
     "message": "Working…"
@@ -177,13 +177,13 @@
     "message": "Uploaded to Dropbox."
   },
   "applyResult": {
-    "message": "Finished. Read changes: $1; moves: $2; empty folders deleted: $3; messages not found: $4."
+    "message": "Applied. Read/unread changes: $1; mail moves: $2; empty folders deleted: $3; messages not found on this PC: $4."
   },
   "scanResult": {
     "message": "Scanned $1 messages. $2"
   },
   "progress": {
-    "message": "Applying cloud state: $1 / $2"
+    "message": "Applying Dropbox changes: $1 / $2"
   },
   "privacyTitle": {
     "message": "MailState Sync privacy policy"
@@ -201,30 +201,51 @@
     "message": "Data used"
   },
   "privacyDataText": {
-    "message": "The add-on reads account identities and folder lists to show the account selector. For selected POP3 accounts it processes account email addresses, Message-ID headers, read/unread values, folder paths and display-name hierarchies, folder message counts and empty status, change timestamps and causal history, and a random per-installation client identifier. Thunderbird’s message-list API also supplies header details in memory; only the listed synchronization fields are persisted or transmitted. No message bodies, subjects, sender/recipient lists, attachments, address books, or mail passwords are stored in synchronization files or uploaded."
+    "message": "The add-on reads account identities and folder lists to show the account selector. For selected POP3 accounts it processes account email addresses, Message-ID headers, read/unread values, folder paths and display-name hierarchies, folder message counts and empty status, change timestamps and causal history, and a random per-installation client identifier.\n\nThunderbird’s message-list API also supplies header details in memory; only the listed synchronization fields are persisted or transmitted. No message bodies, subjects, sender/recipient lists, attachments, address books, or mail passwords are stored in synchronization files or uploaded."
   },
   "privacyRecipients": {
     "message": "Recipients and network access"
   },
   "privacyRecipientsText": {
-    "message": "Metadata goes directly from Thunderbird to your Dropbox account using HTTPS at api.dropboxapi.com and content.dropboxapi.com. notify.dropboxapi.com receives a change cursor to check for updates. Dropbox sees normal connection data such as your IP address and request timing. OAuth authorization opens www.dropbox.com in your system browser; Dropbox controls its sign-in page and cookies. The add-on does not install cookies, use analytics or advertising, or send data to the add-on developer. The developer does not operate a synchronization server. Dropbox handles received data under its own privacy policy. No app-level end-to-end encryption is applied."
+    "message": "Metadata goes directly from Thunderbird to your Dropbox account using HTTPS at api.dropboxapi.com and content.dropboxapi.com. notify.dropboxapi.com receives a change cursor to check for updates. Dropbox sees normal connection data such as your IP address and request timing.\n\nOAuth authorization opens www.dropbox.com in your system browser; Dropbox controls its sign-in page and cookies. The add-on does not install cookies, use analytics or advertising, or send data to the add-on developer. The developer does not operate a synchronization server.\n\nDropbox handles received data under its own privacy policy. No app-level end-to-end encryption is applied."
   },
   "privacyStorage": {
     "message": "Storage and retention"
   },
   "privacyStorageText": {
-    "message": "Settings, consent, synchronization metadata, cursors, your App key, and access/refresh tokens are stored in the Thunderbird profile using storage.local until you clear them or remove the add-on. Treat profile backups as sensitive; this storage is not an encrypted credential vault. Temporary PKCE verifiers are removed after connection or disconnection and expire for use after 15 minutes. Dropbox keeps thunderbird_backup/state.json within the app’s accessible folder (Apps/<your app> for an App folder app). Dropbox retention and version-history settings apply. If enabled, a readable metadata mirror is also written under Downloads. Tokens are never included in cloud or mirror files. Diagnostic console logging is disabled by default."
+    "message": "Settings, consent, synchronization metadata, cursors, your App key, and access/refresh tokens are stored in the Thunderbird profile using storage.local until you clear them or remove the add-on. Treat profile backups as sensitive; this storage is not an encrypted credential vault.\n\nTemporary PKCE verifiers are removed after connection or disconnection and expire for use after 15 minutes.\n\nDropbox keeps thunderbird_backup/state.json within the app’s accessible folder (Apps/<your app> for an App folder app). Dropbox retention and version-history settings apply.\n\nIf enabled, a readable metadata mirror is also written under Downloads. Tokens are never included in cloud or mirror files. Diagnostic console logging is disabled by default."
   },
   "privacyControl": {
     "message": "Your controls"
   },
   "privacyControlText": {
-    "message": "Uncheck Enable synchronization and save to stop collection and sync. Uncheck consent and save to also remove local authorization. Disconnect removes local tokens; revoke the app in Dropbox Connected apps to invalidate its authorization there. Clear local data removes settings, credentials, and cached metadata without deleting mail. Unselecting an account stops new collection but does not erase already saved cloud records; existing cloud records may be retained when the shared file is updated so other PCs do not lose data. To remove all copies, stop synchronization on every PC, clear local data on each PC, delete the Dropbox state file and its history where available, and delete exported mirrors and backups. The add-on does not automatically delete these external files."
+    "message": "Uncheck Enable synchronization and save to stop collection and sync. Uncheck consent and save to also delete this PC’s credentials.\n\nDisconnect this device deletes local credentials. To revoke access at Dropbox, remove the app from Connected apps in Dropbox settings. Delete settings and local sync data removes settings, credentials, and cached metadata. Mail is kept.\n\nDeselecting an account stops new collection for it. Data already in Dropbox remains and may be retained when the shared file is updated so other PCs can continue using it.\n\nTo remove all saved copies, stop synchronization on every PC and delete settings and local sync data on each one. Then manually delete the Dropbox file and any history available for deletion, exported JSON files, and backups."
   },
   "privacyChanges": {
     "message": "Changes and contact"
   },
   "privacyChangesText": {
     "message": "Material changes to data handling will be disclosed in the add-on and publication notes, with renewed consent where needed. Use the support contact shown on the MailState Sync listing on addons.thunderbird.net. Do not include mail metadata, tokens, or authorization codes in public reviews."
+  },
+  "accountListHeading": {
+    "message": "POP3 accounts"
+  },
+  "folderSettingsHeading": {
+    "message": "Limit folders"
+  },
+  "connectionSettingsHeading": {
+    "message": "Connection setup"
+  },
+  "authCodeHelp": {
+    "message": "Allow access on Dropbox, paste the code it provides, then select Connect."
+  },
+  "optionalSettingsHeading": {
+    "message": "JSON export and folder cleanup"
+  },
+  "fullScanHeading": {
+    "message": "First sync or rescan"
+  },
+  "fullScanHelp": {
+    "message": "Start on the PC with the read state and folder layout you want to use. The button below scans all selected mail and sends its state to Dropbox. Then select Apply Dropbox changes on the other PCs. Also use this scan to send changes made while sync was off."
   }
 }
